@@ -74,6 +74,20 @@
         tools:ignore="ButtonStyle" />
 
     <Button
+        android:id="@+id/button_detection"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.5"
+        android:text="@string/detect_image"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/button_translation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_capImg"
+        tools:ignore="ButtonStyle" />
+
+    <Button
         android:id="@+id/button_translation"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -86,7 +100,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_capImg"
-        app:layout_constraintVertical_bias="0.238"
+        app:layout_constraintVertical_bias="0.269"
         tools:ignore="ButtonStyle" />
 
     <Spinner

@@ -38,7 +38,7 @@ import java.util.List;
 public class TranslationActivity extends AppCompatActivity {
 
     private static final int REQUEST_IMAGE_CAPTURE = 1;
-    private Button captureImgButton, TranslateButton;
+    private Button captureImgButton, TranslateButton, detectButton;
     private ImageView imageView;
     private TextView textView, textView1;
     private String originalText, translatedText, a;
@@ -58,6 +58,7 @@ public class TranslationActivity extends AppCompatActivity {
         textView = findViewById(R.id.textToBeDisplayed);
         textView1 = findViewById(R.id.translatedText);
         spinner = findViewById(R.id.spinner);
+        detectButton = findViewById(R.id.button_detection);
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.languages_array, android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
@@ -69,11 +70,17 @@ public class TranslationActivity extends AppCompatActivity {
             }
         });
 
+        detectButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                detectTextFromImage();
+            }
+        });
+
         TranslateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(checkInternetConnection()){
-                    detectTextFromImage();
                     getTranslateService();
                     translate();
                 }
