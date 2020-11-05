@@ -34,7 +34,7 @@
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:drawableEnd="@drawable/ic_baseline_photo_camera_24"
+        android:drawableEnd="@drawable/ic_baseline_arrow_forward_24"
         android:text="Capture an Image"
         android:id="@+id/fab"
         android:backgroundTint="#FFC100"
