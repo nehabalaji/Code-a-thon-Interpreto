@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,64 +10,92 @@
         android:id="@+id/imageToBeRecognized"
         android:layout_width="match_parent"
         android:layout_height="400dp"
-        android:layout_margin="28dp"
-        tools:ignore="ContentDescription"
-        tools:src="@drawable/ic_launcher_foreground"
+        android:layout_margin="20dp"
         android:background="@android:drawable/editbox_background"
-        />
-    <Spinner
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="30dp"
-        android:padding="10dp"
-        android:layout_below="@id/imageToBeRecognized"
-        android:id="@+id/languageSelection"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.285"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        android:visibility="gone"
+        tools:ignore="ContentDescription"
+        tools:src="@drawable/ic_launcher_foreground" />
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:id="@+id/textToBeDisplayed"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@id/imageToBeRecognized"
-        tools:text="Sample"
-        android:textSize="30sp"
-        android:paddingTop="20dp"
-        android:paddingBottom="20dp"
+        android:layout_marginTop="10dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
         android:textAlignment="center"
-        />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/translatedText"
-        android:layout_below="@id/textToBeDisplayed"
+        android:visibility="gone"
         android:textSize="30sp"
-        android:paddingTop="20dp"
-        android:paddingBottom="20dp"
-        android:textAlignment="center"/>
+        android:textColor="@android:color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageToBeRecognized"
+        tools:text="Sample" />
 
-    <LinearLayout
+    <TextView
+        android:id="@+id/translatedText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_alignParentBottom="true"
-        >
+        android:layout_below="@id/textToBeDisplayed"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="4dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:visibility="gone"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textToBeDisplayed" />
 
-        <Button
-            android:id="@+id/button_capImg"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            android:text="@string/capture_image"
-            android:textSize="20sp"
-            tools:ignore="ButtonStyle" />
 
-        <Button
-            android:id="@+id/button_translation"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            android:text="@string/translation"
-            android:textSize="20sp"
-            tools:ignore="ButtonStyle" />
-    </LinearLayout>
+    <Button
+        android:id="@+id/button_capImg"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:layout_weight="0.5"
+        android:text="@string/capture_image"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/translatedText"
+        tools:ignore="ButtonStyle" />
 
-</RelativeLayout>
+    <Button
+        android:id="@+id/button_translation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.5"
+        android:text="@string/translation"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_capImg"
+        app:layout_constraintVertical_bias="0.238"
+        tools:ignore="ButtonStyle" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/button_capImg"
+        app:layout_constraintTop_toBottomOf="@+id/translatedText"
+        tools:layout_editor_absoluteX="1dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

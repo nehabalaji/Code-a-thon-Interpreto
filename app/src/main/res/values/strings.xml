@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">CodeAthon_Interpreto</string>
+    <string name="app_name">Interpreto</string>
     <string name="capture_image">Capture Image</string>
     <string name="translation">Translate</string>
     <string name="no_connection">No internet connection! Cannot be translated!</string>

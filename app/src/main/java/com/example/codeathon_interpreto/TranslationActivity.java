@@ -13,8 +13,10 @@ import android.os.Bundle;
 import android.os.StrictMode;
 import android.provider.MediaStore;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -43,6 +45,7 @@ public class TranslationActivity extends AppCompatActivity {
     Bitmap imageBitmap;
     private boolean connected;
     Translate translate;
+    Spinner spinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +57,10 @@ public class TranslationActivity extends AppCompatActivity {
         imageView = findViewById(R.id.imageToBeRecognized);
         textView = findViewById(R.id.textToBeDisplayed);
         textView1 = findViewById(R.id.translatedText);
+        spinner = findViewById(R.id.spinner);
+
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.languages_array, android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
 
         captureImgButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,6 +98,10 @@ public class TranslationActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+            imageView.setVisibility(View.VISIBLE);
+            textView.setVisibility(View.VISIBLE);
+            spinner.setVisibility(View.VISIBLE);
+            textView1.setVisibility(View.VISIBLE);
             Bundle extras = data.getExtras();
             imageBitmap = (Bitmap) extras.get("data");
             imageView.setImageBitmap(imageBitmap);
@@ -158,14 +169,50 @@ public class TranslationActivity extends AppCompatActivity {
 
     public void translate() {
 
+        String text = spinner.getSelectedItem().toString();
+        switch (text){
+            case "Kannada": a="kn";
+                break;
+            case "Tamil": a="ta";
+                break;
+            case "Telugu": a="te";
+                break;
+            case "Hindi": a="hi";
+                break;
+            case "Arabic": a="ar";
+                break;
+            case "Bengali": a="bn";
+                break;
+            case "Danish": a="da";
+                break;
+            case "Dutch": a="nl";
+                break;
+            case "English": a="el";
+                break;
+            case "French": a="fr";
+                break;
+            case "German": a="de";
+                break;
+            case "Gujarati": a="gu";
+                break;
+            case "Punjabi": a="pa";
+                break;
+            case "Sindhi": a="sd";
+                break;
+            case "Spanish": a="es";
+                break;
+            default: a="el";
+            break;
+        }
+
         //Get input text to be translated:
         originalText = textView.getText().toString();
-        Translation translation = translate.translate(originalText, Translate.TranslateOption.targetLanguage("tr"), Translate.TranslateOption.model("base"));
+        Translation translation = translate.translate(originalText, Translate.TranslateOption.targetLanguage(a), Translate.TranslateOption.model("base"));
         translatedText = translation.getTranslatedText();
 
         //Translated text and original text are set to TextViews:
         textView1.setText(translatedText);
-
+        textView.setText(originalText);
     }
 
 }

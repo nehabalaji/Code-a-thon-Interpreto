@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="languages_array">
+        <item>Select a language</item>
+        <item>Kannada</item>
+        <item>Tamil</item>
+        <item>Telugu</item>
+        <item>Hindi</item>
+        <item>Malayalam</item>
+        <item>Arabic</item>
+        <item>Bengali</item>
+        <item>Danish</item>
+        <item>Dutch</item>
+        <item>English</item>
+        <item>French</item>
+        <item>German</item>
+        <item>Gujarati</item>
+        <item>Italian</item>
+        <item>Punjabi</item>
+        <item>Sindhi</item>
+        <item>Spanish</item>
+
+        Arabic	ar
+        Bengali	bn
+        Danish	da
+        Dutch	nl
+        English	en
+        French	fr
+        German	de
+        Gujarati	gu
+        Hindi	hi
+        Italian	it
+        Punjabi	pa
+        Sindhi	sd
+        Spanish	es
+
+    </string-array>
+</resources>
