@@ -1,9 +1,9 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.MaterialComponents.NoActionBar">
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">#FFC100</item>
-        <item name="colorPrimaryDark">@android:color/white</item>
+        <item name="colorPrimaryDark">#FFC100</item>
         <item name="colorAccent">#FFC100</item>
     </style>
 
