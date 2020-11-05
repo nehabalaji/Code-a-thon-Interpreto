@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TranslationActivity">
+
+    <ImageView
+        android:id="@+id/imageToBeRecognized"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_margin="28dp"
+        tools:ignore="ContentDescription"
+        tools:src="@drawable/ic_launcher_foreground"
+        android:background="@android:drawable/editbox_background"
+        />
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:padding="10dp"
+        android:layout_below="@id/imageToBeRecognized"
+        android:id="@+id/languageSelection"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textToBeDisplayed"
+        android:layout_below="@id/imageToBeRecognized"
+        tools:text="Sample"
+        android:textSize="30sp"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:textAlignment="center"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/translatedText"
+        android:layout_below="@id/textToBeDisplayed"
+        android:textSize="30sp"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:textAlignment="center"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        >
+
+        <Button
+            android:id="@+id/button_capImg"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:text="@string/capture_image"
+            android:textSize="20sp"
+            tools:ignore="ButtonStyle" />
+
+        <Button
+            android:id="@+id/button_translation"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:text="@string/translation"
+            android:textSize="20sp"
+            tools:ignore="ButtonStyle" />
+    </LinearLayout>
+
+</RelativeLayout>
